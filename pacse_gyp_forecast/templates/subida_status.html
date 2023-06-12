@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+      <title>Subir status</title>
+  </head>
+  <body>
+      {% if messages %}
+          <ul class="messages">
+              {% for message in messages %}
+                  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+              {% endfor %}
+          </ul>
+      {% endif %}
+  
+      <form method="post" action="{% url 'pacse_gyp_forecast:subida_status' %}">
+        {% csrf_token %}
+        <label for="estado">Estado:</label>
+        <input type="submit" value="Guardar inicial">
+      </form>
+  </body>
+  </html>
+
+
+  
